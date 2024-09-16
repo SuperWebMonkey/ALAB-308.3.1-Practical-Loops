@@ -24,45 +24,33 @@ let n = 5;
 let max = n + 25;
 let nextPrime = 0;
 let isPrime = true;
+let isOdd = true;
 
 for (let j = n + 1; j < max; j++) {
-  // find if nums before n are prime against j
+  // find if nums before j are divisible
+  if (j % 2 == 0) {
+    isOdd = false;
+  } else {
+    isOdd = true;
+  }
+
   let i = 2;
-  while (i <= n) {
+  while (i < j) {
     // console.log("before n", i);
     if (j % i == 0) {
       isPrime = false;
       //   console.log(`${j} is not ${isPrime}`);
       break;
+    } else {
+      nextPrime = j;
     }
 
     i++;
   }
 
-  // find if temp is prime against j
-  let temp = n;
-  if (j % temp != 0) {
-    nextPrime = j;
-    isPrime = true;
-    console.log(`${j} is prime`);
+  if (isPrime === false) {
     break;
-  } else {
-    isPrime = false;
   }
-
-  //   while (temp <= j) {
-  //     // console.log("after n", temp);
-  //     if (j % temp != 0) {
-  //       nextPrime = j;
-  //       isPrime = true;
-  //       console.log(`${j} is prime`);
-  //       break;
-  //     } else {
-  //       isPrime = false;
-  //     }
-
-  //     temp++;
-  //   }
 }
 
 console.log(nextPrime);
