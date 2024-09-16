@@ -21,39 +21,43 @@ for (let i = 1; i <= 100; i++) {
 // Part 2 - Prime Numbers
 console.log("\nPart - 2: Prime Numbers:");
 let n = 5;
+let j = n + 1;
 let max = n + 25;
 let nextPrime = 0;
-let isPrime = true;
-let isOdd = true;
+let isPrime = false;
 
-for (let j = n + 1; j < max; j++) {
+while (isPrime !== true) {
   // find if nums before j are divisible
-  if (j % 2 == 0) {
-    isOdd = false;
-  } else {
-    isOdd = true;
+  if (n == 0) {
+    nextPrime = 1;
+    isPrime = true;
+    break;
   }
 
-  let i = 2;
+  let i = 1;
   while (i < j) {
     // console.log("before n", i);
-    if (j % i == 0) {
+    if (j % i == 0 && i !== 1) {
+      console.log(`${j} is not ${isPrime}`);
       isPrime = false;
-      //   console.log(`${j} is not ${isPrime}`);
       break;
     } else {
       nextPrime = j;
+      isPrime = true;
     }
 
     i++;
   }
 
-  if (isPrime === false) {
+  j++;
+
+  if (isPrime) {
+    // console.log(`${nextPrime} is the next prime`);
     break;
   }
 }
 
-console.log(nextPrime);
+// console.log(nextPrime);
 
 if (isPrime) {
   console.log(`The next prime after ${n} is ${nextPrime}`);
