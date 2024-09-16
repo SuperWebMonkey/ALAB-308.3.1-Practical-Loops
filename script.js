@@ -18,10 +18,25 @@ for (let i = 1; i <= 100; i++) {
   }
 }
 
-// Part 2
+// Part 2 - Prime Numbers
+console.log("\nPart -2: Prime Numbers:");
+let n = 5;
+let i = 2;
+let max = n + 25;
+let nextPrime = 0;
+let isPrime = false;
 
-// Part 3
-console.log("\nPart - 3 CSV");
+for (n; n < max; n++) {
+  // find before n
+  for (i; i < n; i++) {
+    if (i % n == 0) {
+      break;
+    }
+  }
+}
+
+// Part 3 - CSV File
+console.log("\nPart - 3: CSV");
 let csvFile =
   "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26\n";
 
